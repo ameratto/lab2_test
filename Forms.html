@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+    <h1>Лабораторна робота №1</h1>
+    <h2>Робота з формами</h2>
+    <h2>Виконав студент групи КН-31 Пряшин Олексій</h2>
+    <a href="Main.html">Main</a>
+</head>
+<body>
+
+<h2>Завдання:</h2>
+<p>Необхідно розробити форму для введення результатів поточної сесії у веб-систему. Необхідно заповнити наступні
+    данні:</p>
+<ul>
+    <li> дані про студента, включають ПІБ, назву групи (вибирається із списку), оцінку за дисципліну (лише ціле значення
+        від 0 до 100), дату проведення заліку або іспиту;
+    </li>
+    <li>дані про залік або іспит, включають назву дисципліни(вибирається із списку), перемикач це залік чи іспит,
+        прізвище викладача.
+    </li>
+</ul>
+<h1>Форма:</h1>
+
+<form>
+    <fieldset> Дані студента
+        <label>
+            <input type="text" name="ПІБ" placeholder="Введіть ПІБ">
+        </label>
+        <label>
+            <select name="Назва групи">
+                <option value="КН-31">КН-31</option>
+                <option value="ТШІ">КН-32</option>
+                <option value="АнД-31">АнД-31</option>
+            </select>
+        </label>
+        <label for="slider">Оцінка</label>
+        <input type="range" id="slider" name="slider" min="0" max="100">
+        <span id="sliderValue">50</span>
+        <script>
+            var slider = document.getElementById("slider");
+            var sliderValue = document.getElementById("sliderValue");
+
+            slider.addEventListener("input", function() {
+                sliderValue.textContent = slider.value;
+            });
+        </script>
+        <label>
+            <input type="date" name="Дата" placeholder="дд. мм. рррр.">
+        </label>
+    </fieldset>
+    <fieldset>Дані про залік або іспит
+        <label>
+            <select name="Назва дисципліни">
+                <option value="МЗОІ">МЗОІ</option>
+                <option value="НП">НП</option>
+                <option value="ПРВЗ">ПРВЗ</option>
+                <option value="СА">СА</option>
+                <option value="ВО">ВО</option>
+                <option value="МПР">МПР</option>
+                <option value="Філософія">Філософія</option>
+            </select>
+        </label>
+        <form>
+            <label>
+                <input type="radio" name="перемикач" value="Залік" checked> Залік
+            </label>
+            <label>
+                <input type="radio" name="перемикач" value="Екзамен"> Екзамен
+            </label>
+        </form>
+        <label>
+            <input type="text" name="прізвище викладача" placeholder="Прізвище викладача">
+        </label>
+    </fieldset>
+</form>
+
+</body>
+</html>
